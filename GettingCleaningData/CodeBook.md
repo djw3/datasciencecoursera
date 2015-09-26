@@ -1,4 +1,4 @@
-*** PLEASE CLICK "RAW" IN GITHUB FOR CORRECT FORMATTING OF THIS DOCUMENT ***
+*** PLEASE CLICK "RAW" IN GITHUB TO SEE THE CORRECT FORMATTING OF THIS DOCUMENT ***
 
 ANALYSIS OF Human Activity Recognition Using Smartphones Dataset, V1.0
 
@@ -84,10 +84,9 @@ Generation of the tidy dataset:
 	tidyDDply	Takes tidyGathered and summarizes the data on columns "subject" "activity" and "column" and puts the mean value
 			in new column called "calcmean"  Result: 11880 rows, 4 columns
 	tidySeparated	Takes tidyDDply and separates (by the dash character) the three parts of "column" 
-			into "measurement" "statistic" and "dimension"  Result: 11880 columns, 6 rows
-	tidySpread	Takes tidySeparated and moves all the activities to individual columns for easier reading.
-			Result: 1980 rows, 10 columns
-	tidyFinal	Takes tidySpread and keeps the half of the data where statistic = "mean".  Result: 990 rows, 10 columns. 
+			into "measurement" "statistic" and "dimension"  Result: 11880 rows, 6 columns
+
+	tidyFinal	Takes tidySeparated and keeps the half of the data where statistic = "mean".  Result: 5940 rows, 6 columns. 
 			
 
 

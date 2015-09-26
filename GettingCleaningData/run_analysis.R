@@ -47,7 +47,7 @@
       
 # Create a tidy dataset with the average of each variable for each activity and each subject
      library(tidyr)
-     library(dplyr)
+     library(plyr)
      # makes the colnames uniform format : measurement-statistic-dimension
      names(subsetMeanSD)  <- gsub("mean$", "mean-none", names(subsetMeanSD))
      names(subsetMeanSD)  <- gsub("std$", "std-none", names(subsetMeanSD))
@@ -55,7 +55,6 @@
      tidyGathered <- gather(data = subsetMeanSD, column, value, -subject, -activity)
      tidyDDply <- ddply(tidyGathered, .(subject, activity, column), summarize, calcmean = mean(value, na.rm=TRUE))
      tidySeparated <- separate(data = tidyDDply, col = column, into = c('measurement', 'statistic', 'dimension'))
-     tidySpread <- spread(data = tidySeparated, key = activity,value = calcmean)
-     tidyFinal <- subset(tidySpread, statistic == 'mean')
+     tidyFinal <- subset(tidySeparated, statistic == 'mean')
      tidyFinal
                
